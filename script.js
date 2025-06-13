@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('registration-form');
-    const feedbackDiv = document.getElementById('for,-feedback');
+    const feedbackDiv = document.getElementById('form-feedback');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Password validation
-        if (password.length < 8); {
+        if (password.length < 8) {
             isValid = false;
             messages.push('Password must be atleast 8 characters long.')
         }
@@ -38,8 +38,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isValid) {
             feedbackDiv.textContent = "Registration successful";
             feedbackDiv.style.color = "#28a745"
-            feedbackDiv.style.backgroundColor = "#ffbaba"
+            feedbackDiv.style.backgroundColor = "#d4edda"
 
+        } else {
+            feedbackDiv.innerHTML = messages.join('<br>')
+            feedbackDiv.style.color = "#d8000c";
+            feedbackDiv.style.backgroundColor="ffbaba"
         }
     });
 });
